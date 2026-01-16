@@ -73,11 +73,11 @@ export default function Navbar() {
 
   return (
     <Box
+      as="nav"
       bg={isDark ? "gray.800" : "blue.600"}
       px={2}
       py={1.5}
       color="white"
-      as="nav"
       h="60px"
       w="100%"
       position="fixed"
@@ -86,11 +86,13 @@ export default function Navbar() {
       zIndex={10}
       boxShadow="md"
     >
-      <Flex align="center" justify="space-between" bg="transparent" h="100%">
+      <Flex align="center" justify="space-between" h="100%">
         {/* Logo */}
-        <Text fontWeight="bold" fontSize="xl">
-          DECODES
-        </Text>
+        <Link href="#hero" aria-label="Go to home section" title="DECODES Home">
+          <Text as="span" fontWeight="bold" fontSize="xl">
+            DECODES
+          </Text>
+        </Link>
 
         {/* Desktop Links */}
         <HStack spacing={6} display={{ base: "none", md: "flex" }}>
@@ -100,14 +102,16 @@ export default function Navbar() {
               textDecoration="none"
               key={link.name}
               href={link.href}
+              aria-label={`Navigate to ${link.name} section`}
+              title={link.name}
             >
               {link.name}
             </Link>
           ))}
         </HStack>
 
-        {/* Mobile Menu Button */}
-        <Flex h="100%" w="auto" bg="transparent" align="center" gap={2}>
+        {/* Mobile Menu Buttons */}
+        <Flex h="100%" w="auto" align="center" gap={2}>
           <IconButton
             onClick={toggleColorMode}
             aria-label="Toggle Dark Mode"
@@ -119,7 +123,7 @@ export default function Navbar() {
             onClick={onToggle}
             icon={isOpen ? <CloseIcon /> : <MenuIcon />}
             variant="ghost"
-            aria-label="Open Menu"
+            aria-label={isOpen ? "Close Menu" : "Open Menu"}
           />
         </Flex>
       </Flex>
@@ -127,26 +131,30 @@ export default function Navbar() {
       {/* Mobile Links */}
       <Collapse in={isOpen} animateOpacity>
         <VStack
+          role="menu"
           spacing={4}
-          mt={0} // remove extra margin
+          mt={0}
           display={{ base: "flex", md: "none" }}
           align="stretch"
-          bg={isDark ? "gray.800" : "blue.500"} // visible background
+          bg={isDark ? "gray.800" : "blue.500"}
           w="100%"
           p={4}
           borderRadius="md"
-          zIndex={20} // above video / hero
-          position="absolute" // overlays content
-          top="60px" // adjust for navbar height
+          zIndex={20}
+          position="absolute"
+          top="60px"
           left={0}
-          shadow="md" // optional: adds drop shadow
+          shadow="md"
         >
           {links.map((link) => (
             <Link
-              textDecoration="none"
-              color="white"
+              role="menuitem"
               key={link.name}
               href={link.href}
+              aria-label={`Navigate to ${link.name} section`}
+              title={link.name}
+              textDecoration="none"
+              color="white"
             >
               {link.name}
             </Link>

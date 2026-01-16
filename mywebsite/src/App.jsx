@@ -1,18 +1,26 @@
-import { Box } from "@chakra-ui/react";
+import { Box, Image } from "@chakra-ui/react";
+import React, { lazy, Suspense } from "react";
 import Hero from "./Components/Hero";
 import "./App.css";
 import Service from "./Components/Service";
+// const Service = lazy(() => import("./Components/Service"));
 import { motion } from "framer-motion";
-import Ourwork from "./Components/Ourwork";
-import Testimonials from "./Components/Testimonials";
-import Questions from "./Components/Questions";
-import Contact from "./Components/Contact";
+// import Ourwork from "./Components/ourwork";
+const Ourwork = lazy(() => import("./Components/ourwork"));
+// import Testimonials from "./Components/Testimonials";
+const Testimonials = lazy(() => import("./Components/Testimonials"));
+// import Questions from "./Components/Questions";
+const Questions = lazy(() => import("./Components/Questions"));
+
+// import Contact from "./Components/Contact";
+const Contact = lazy(() => import("./Components/Contact"));
 import Footer from "./Components/Footer";
 
 const App = () => {
   return (
     <Box w="100%" bg="blue.100" fontFamily="'Playfair Display', serif">
       <motion.a
+        aria-label="WhatsApp contact button"
         href="https://wa.me/2349013172370"
         target="_blank"
         style={{
@@ -52,11 +60,21 @@ const App = () => {
         </svg>
       </motion.a>
       <Hero />
-      <Service />
-      <Ourwork />
-      <Testimonials />
-      <Questions />
-      <Contact />
+      <Suspense fallback={<Box>Loading Services...</Box>}>
+        <Service />
+      </Suspense>
+      <Suspense fallback={<Box>Loading Our Work...</Box>}>
+        <Ourwork />
+      </Suspense>
+      <Suspense fallback={<Box>Loading Testimonials...</Box>}>
+        <Testimonials />
+      </Suspense>
+      <suspense fallback={<Box>Loading Questions...</Box>}>
+        <Questions />
+      </suspense>
+      <Suspense fallback={<Box>Loading Contact...</Box>}>
+        <Contact />
+      </Suspense>
       <Footer />
     </Box>
   );

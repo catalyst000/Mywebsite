@@ -18,10 +18,12 @@ const Hero = () => {
         loop
         playsInline
         width="100%"
-        height={{ base: "335px", md: "60vh" }}
+        height={{ base: "335px", md: "64vh" }}
+        preload="auto"
+        poster="/hero-fallbackimg.webp"
         objectFit="cover"
         position="absolute"
-        top={0} // adjust for navbar height
+        top="60px" // adjust for navbar height
         left={0}
         zIndex={1} // so content appears on top
       />
@@ -78,7 +80,7 @@ const Hero = () => {
           </Text>
 
           <Box mt={2} display="flex" gap={4} h="fit-content">
-            <Link>
+            <Link href="#portfolio-projects" aria-label="See Our Works">
               <Box
                 h="50px"
                 as="button"
@@ -105,7 +107,7 @@ const Hero = () => {
               </Box>
             </Link>
 
-            <Link>
+            <Link href="#contact" aria-label="See Our Works">
               <Box
                 h="50px"
                 as="button"
@@ -143,7 +145,8 @@ const Hero = () => {
           >
             {/* Twitter icon  */}
             <a
-              href="https://twitter.com/yourusername"
+              aria-label="Twitter"
+              href="https://x.com/DUgwuzor88650"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -161,9 +164,12 @@ const Hero = () => {
             </a>
             {/* LInkedin icon */}
             <a
-              href="https://twitter.com/yourusername"
+              aria-label="LinkedIn"
               target="_blank"
               rel="noopener noreferrer"
+              href="https://linkedin.com/in/david-ugwuzor-400632302"
+              isExternal
+              cursor="pointer"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -182,7 +188,8 @@ const Hero = () => {
 
             {/* Whatsapp icon */}
             <a
-              href="https://twitter.com/yourusername"
+              aria-label="WhatsApp"
+              href="https://wa.me/2349013172370"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -200,7 +207,8 @@ const Hero = () => {
 
             {/* Instagram Icon */}
             <a
-              href="https://twitter.com/yourusername"
+              aria-label="Instagram"
+              href="https://instagram.com/ugwuzordavid005?igsh=NDhtZXh2aDFidm5t"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -227,7 +235,9 @@ const Hero = () => {
 
             {/* Tiktok icon */}
             <a
-              href="https://twitter.com/yourusername"
+              aria-label="TikTok"
+               href="https://www.tiktok.com/@david.devs"
+               cursor="pointer"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -247,7 +257,8 @@ const Hero = () => {
             </a>
             {/* Github icon */}
             <a
-              href="https://twitter.com/yourusername"
+              aria-label="GitHub"
+              href="https://github.com/catalyst000"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -269,6 +280,7 @@ const Hero = () => {
 
             {/* Facebook icon */}
             <a
+              aria-label="Facebook"
               href="https://twitter.com/yourusername"
               target="_blank"
               rel="noopener noreferrer"
@@ -318,8 +330,9 @@ const Hero = () => {
             }}
           >
             <Image
+              alt="David Ugwuzor hero image"
               src="/mypicture.webp"
-              alt="Hero Image"
+              loading="eager"
               h="200%"
               w="250px"
               borderBottomLeftRadius="300px"
@@ -327,6 +340,7 @@ const Hero = () => {
               borderRadius="300px"
             />
             <Image
+              alt="react logo"
               src="/react-pic.webp"
               position="absolute"
               top="-10px"
@@ -335,6 +349,7 @@ const Hero = () => {
               w="40px"
             />
             <Image
+              alt="visual studio logo"
               src="/visualstudio-pic.webp"
               position="absolute"
               top="200px"
@@ -343,6 +358,7 @@ const Hero = () => {
               w="40px"
             />
             <Image
+              alt="wordpress logo"
               src="/wordpress-pic.webp"
               position="absolute"
               top="100px"

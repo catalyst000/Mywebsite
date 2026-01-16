@@ -47,8 +47,11 @@ const Testimonials = () => {
       <Flex
         direction={{ base: "column", md: "row" }}
         justify="center"
-        align="flex-start"
+        align="center"
         gap="6"
+        pt="1rem"
+        pb="1rem"
+        
       >
         {testimonials.map((testimonial, index) => (
           <MotionBox
@@ -58,23 +61,23 @@ const Testimonials = () => {
             w={{ base: "100%", md: "400px" }}
             maxW="320px"
             minH="fit-content"
-            h="400px"
+            h="300px"
             p="6"
             bg="white"
             shadow="lg"
             borderRadius="md"
             textAlign="left"
           >
-            <Flex mb="4" align="flex-start">
-              <Text fontSize="80px" color="blue.300" fontWeight="bold" lineHeight="1" mr="4">
-                ❛
+            <Flex mb="4" align="flex-start" flexDirection="column">
+              <Text fontSize="80px"  color="blue.300" fontWeight="bold" lineHeight="1" mr="4">
+                ❛❛
               </Text>
               <blockquote>
                 <Text fontSize="md" lineHeight="1.6">{testimonial.text}</Text>
               </blockquote>
             </Flex>
 
-            <Flex align="center" mt="6" gap="3">
+            <Flex align="end" justify="end" mt="6" gap="3">
               <Avatar src={testimonial.avatar} name={testimonial.name} size="sm" />
               <Box>
                 <Text fontWeight="bold">{testimonial.name}</Text>
