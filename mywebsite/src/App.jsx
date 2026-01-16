@@ -6,7 +6,8 @@ import Service from "./Components/Service";
 // const Service = lazy(() => import("./Components/Service"));
 import { motion } from "framer-motion";
 // import Ourwork from "./Components/ourwork";
-const Ourwork = lazy(() => import("./Components/ourwork"));
+const Ourwork = lazy(() => import("/Components/Ourwork"))
+
 // import Testimonials from "./Components/Testimonials";
 const Testimonials = lazy(() => import("./Components/Testimonials"));
 // import Questions from "./Components/Questions";
