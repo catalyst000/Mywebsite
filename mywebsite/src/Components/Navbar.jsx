@@ -26,15 +26,16 @@ const MenuIcon = () => (
 );
 
 const CloseIcon = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="24"
-    height="24"
-    fill="currentColor"
-    viewBox="0 0 24 24"
-  >
-    <path d="M18.3 5.71L12 12l6.3 6.29-1.41 1.42L12 14.83l-6.29 6.3-1.42-1.41L10.59 12 4.3 5.71 5.71 4.3 12 10.59l6.29-6.3 1.42 1.41z" />
-  </svg>
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  fill="currentColor"
+  viewBox="0 0 24 24"
+>
+  <line x1="4" y1="4" x2="20" y2="20" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+  <line x1="20" y1="4" x2="4" y2="20" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+</svg>
 );
 
 const DarkModeIcon = ({ isDark }) =>
@@ -49,15 +50,25 @@ const DarkModeIcon = ({ isDark }) =>
       <path d="M21 12.79A9 9 0 0111.21 3 7 7 0 0021 12.79z" />
     </svg>
   ) : (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="20"
-      height="20"
-      fill="currentColor"
-      viewBox="0 0 24 24"
-    >
-      <path d="M6.76 4.84l-1.8-1.79-1.41 1.41 1.79 1.8 1.42-1.42zm10.48 0l1.42 1.42 1.79-1.8-1.41-1.41-1.8 1.79zM12 4V1h-2v3h2zm0 19v-3h-2v3h2zm8.66-5.66l2.12 2.12 1.41-1.41-2.12-2.12-1.41 1.41zM3.22 17.66l2.12-2.12-1.41-1.41-2.12 2.12 1.41 1.41zM22 12h3v-2h-3v2zm-19 0H1v-2h2v2zm16.24 6.16l1.79 1.8 1.41-1.41-1.8-1.79-1.4 1.4zM4.22 6.34L2.8 4.93 1.39 6.34l1.42 1.42 1.41-1.42zM12 7a5 5 0 100 10 5 5 0 000-10z" />
-    </svg>
+   <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  fill="currentColor"
+  viewBox="0 0 24 24"
+>
+  <circle cx="12" cy="12" r="5" />
+
+  <line x1="12" y1="1" x2="12" y2="4" stroke="currentColor" strokeWidth="2"/>
+  <line x1="12" y1="20" x2="12" y2="23" stroke="currentColor" strokeWidth="2"/>
+  <line x1="4.22" y1="4.22" x2="6.34" y2="6.34" stroke="currentColor" strokeWidth="2"/>
+  <line x1="17.66" y1="17.66" x2="19.78" y2="19.78" stroke="currentColor" strokeWidth="2"/>
+  <line x1="1" y1="12" x2="4" y2="12" stroke="currentColor" strokeWidth="2"/>
+  <line x1="20" y1="12" x2="23" y2="12" stroke="currentColor" strokeWidth="2"/>
+  <line x1="4.22" y1="19.78" x2="6.34" y2="17.66" stroke="currentColor" strokeWidth="2"/>
+  <line x1="17.66" y1="6.34" x2="19.78" y2="4.22" stroke="currentColor" strokeWidth="2"/>
+</svg>
+
   );
 
 export default function Navbar() {
@@ -121,7 +132,7 @@ export default function Navbar() {
           <IconButton
             display={{ base: "flex", md: "none" }}
             onClick={onToggle}
-            icon={isOpen ? <CloseIcon /> : <MenuIcon />}
+            icon={isOpen ? <CloseIcon/> : <MenuIcon />}
             variant="ghost"
             aria-label={isOpen ? "Close Menu" : "Open Menu"}
           />
