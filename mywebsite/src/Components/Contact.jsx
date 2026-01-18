@@ -241,10 +241,12 @@ import {
   Link,
   FormControl,
   FormLabel,
+  useToast,
 } from "@chakra-ui/react";
 import { FaLinkedinIn, FaTiktok, FaTwitter } from "react-icons/fa";
 
 const Contact = () => {
+  const toast = useToast();
   const [form, setForm] = useState({
     name: "",
     location: "",
@@ -253,7 +255,7 @@ const Contact = () => {
     message: "",
   });
 
-  // ✅ handleChange outside handleSubmit
+  // handleChange outside handleSubmit
   const handleChange = (e) => {
     const { id, value } = e.target;
     setForm((prev) => ({ ...prev, [id]: value }));
@@ -275,7 +277,7 @@ const Contact = () => {
           from_message: form.message,
           from_phone: form.phone,
         },
-        "WhPQ4ezNTE7J1VSLz"
+        "WhPQ4ezNTE7J1VSLz",
       );
 
       // Reset form
@@ -286,8 +288,48 @@ const Contact = () => {
         phone: "",
         message: "",
       });
+
+      toast({
+        title: "Message sent!",
+        description: "I'll get back to you shortly.",
+        status: "success",
+        duration: 4000,
+        isClosable: true,
+              render: () => (
+            <Box 
+              color="white"
+              p={4}
+              bg="teal.500"
+              borderRadius="md"
+              display="flex"
+              alignItems="center"
+              h="500px"
+              flexDirection="column"
+            >
+              <Image
+                src="/successimg.webp"
+                alt="icon"
+                boxSize="150px"
+                mr={3}
+              />
+              <Box>
+                <Text fontWeight="bold">Message Sent!</Text>
+                <Text fontSize="sm">I'll get back to you shortly.</Text>
+              </Box>
+            </Box>
+          ),
+        position: "top-right",
+        
+      });
     } catch (error) {
-      console.error("Email send failed:", error);
+      toast({
+        title: "Message not sent",
+        description: "Please try again later.",
+        status: "error",
+        duration: 4000,
+        isClosable: true,
+        position: "top-right",
+      });
     }
   };
 
@@ -350,7 +392,11 @@ const Contact = () => {
               >
                 <Icon as={FaTiktok} w={6} h={6} color="pink.800" />
               </Link>
-              <Link href="https://x.com/DUgwuzor88650" isExternal aria-label="Twitter">
+              <Link
+                href="https://x.com/DUgwuzor88650"
+                isExternal
+                aria-label="Twitter"
+              >
                 <Icon as={FaTwitter} w={6} h={6} color="blue.400" />
               </Link>
             </HStack>
@@ -371,17 +417,31 @@ const Contact = () => {
 
               <FormControl isRequired>
                 <FormLabel htmlFor="location">Location</FormLabel>
-                <Input id="location" value={form.location} onChange={handleChange} />
+                <Input
+                  id="location"
+                  value={form.location}
+                  onChange={handleChange}
+                />
               </FormControl>
 
               <FormControl isRequired>
                 <FormLabel htmlFor="email">Email</FormLabel>
-                <Input id="email" type="email" value={form.email} onChange={handleChange} />
+                <Input
+                  id="email"
+                  type="email"
+                  value={form.email}
+                  onChange={handleChange}
+                />
               </FormControl>
 
               <FormControl isRequired>
                 <FormLabel htmlFor="phone">Phone Number</FormLabel>
-                <Input id="phone" type="tel" value={form.phone} onChange={handleChange} />
+                <Input
+                  id="phone"
+                  type="tel"
+                  value={form.phone}
+                  onChange={handleChange}
+                />
               </FormControl>
 
               <FormControl isRequired>
@@ -396,7 +456,13 @@ const Contact = () => {
                 />
               </FormControl>
 
-              <Button colorScheme="blue" size="lg" type="submit" w="full">
+              <Button
+                colorScheme="blue"
+                size="lg"
+                type="submit"
+                w="full"
+                mt="0.5rem"
+              >
                 Send Message
               </Button>
             </form>

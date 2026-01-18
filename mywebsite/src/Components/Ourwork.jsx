@@ -50,7 +50,7 @@ const Ourwork = () => {
       aria-labelledby="our-work-heading"
       textAlign="center"
     >
-      <Heading as="h2" size="lg" mb={4} id="our-work-heading" >
+      <Heading as="h2" size="lg" mb={4} id="our-work-heading" fontFamily="'Playfair Display', serif" >
         Work Speaks
       </Heading>
 
@@ -92,7 +92,7 @@ const Ourwork = () => {
                 src={project.image}
                 alt={`${project.title} built with ${project.stack}`}
                 borderRadius="xl"
-                loading="lazy"
+                loading="eager"
                 decoding="async"
                 w="100%"
                 h="250px"

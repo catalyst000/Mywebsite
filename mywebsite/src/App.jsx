@@ -2,21 +2,14 @@ import { Box, Image } from "@chakra-ui/react";
 import React, { lazy, Suspense } from "react";
 import Hero from "./Components/Hero";
 import "./App.css";
-// import Service from "./Components/Service";
 const Service = lazy(() => import("./Components/Service"));
 import { motion } from "framer-motion";
-
-// import Ourwork from "./Components/Ourwork";
 const Ourwork = lazy(() => import("./Components/Ourwork"));
-
-// import Testimonials from "./Components/Testimonials";
 const Testimonials = lazy(() => import("./Components/Testimonials"));
-// import Questions from "./Components/Questions";
 const Questions = lazy(() => import("./Components/Questions"));
-
-// import Contact from "./Components/Contact";
 const Contact = lazy(() => import("./Components/Contact"));
 import Footer from "./Components/Footer";
+
 
 const App = () => {
   return (
@@ -78,6 +71,7 @@ const App = () => {
         <Contact />
       </Suspense>
       <Footer />
+      <toast/>
     </Box>
   );
 };

@@ -8,7 +8,7 @@ const Testimonials = () => {
   const testimonials = [
     {
       name: "Hannah Rough",
-      role: "CEO, Example Co.",
+      role: "CEO at Gourmet Bites",
       text: "David built our website flawlessly and delivered ahead of schedule!",
       avatar: "https://i.pravatar.cc/150?img=1",
       animation: {
@@ -20,13 +20,13 @@ const Testimonials = () => {
     },
     {
       name: "Michael Dean",
-      role: "Freelancer",
+      role: "Enterpreneur",
       text: "Working with David was smooth and professional. Highly recommend!",
       avatar: "https://i.pravatar.cc/150?img=2",
     },
     {
       name: "Jackson Glen",
-      role: "CEO, Glen Co.",
+      role: "Consultant",
       text: "David built our coffee website flawlessly and delivered ahead of schedule!",
       avatar: "https://i.pravatar.cc/150?img=3",
       animation: {
@@ -40,7 +40,7 @@ const Testimonials = () => {
 
   return (
     <Box as="section" py="16" px="6" bg="gray.50" aria-label="Client Testimonials">
-      <Heading as="h2" mb="12" textAlign="center">
+      <Heading as="h2" mb="12" textAlign="center" fontFamily="'Playfair Display', serif">
         What Clients Say
       </Heading>
 
