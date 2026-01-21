@@ -64,7 +64,7 @@ const Hero = () => {
             lineHeight={{ base: "1.2", md: "1.1" }}
             maxW="650px"
           >
-            Let's work together to build your brand solution
+            I'm Ugwuzor David, a seasoned website developer.
           </Text>
 
           <Text
@@ -75,8 +75,9 @@ const Hero = () => {
             color="#F8FAFC"
             maxW="600px"
           >
-            From concept to launch, I create fast, accessible, and scalable
-            website
+           
+            From concept to launch, I create fast, accessible, and scalable website
+           
           </Text>
 
           <Box mt={2} display="flex" gap={4} h="fit-content">
